@@ -1,0 +1,1 @@
+export const isPreviewableSVG = file => /^.+\.svg/.test(file.name) && !/^image/.test(file.type);

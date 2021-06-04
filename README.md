@@ -1,7 +1,6 @@
 # SVG Preview plugin for FilePond
 
-This **Fetch SVG Preview** plugin will kick in automatically when the uploaded file has an SVG extension and incorrect Content-Type e.g. *application/octet-stream*.
-
+This **Fetch SVG Preview** plugin will kick in automatically when the uploaded file has an SVG extension with incorrect Content-Type e.g. *application/octet-stream* which is common case in S3 bucket.
 
 ## Quick Start
 
@@ -49,7 +48,8 @@ import 'filepond-plugin-fetch-svg-preview/dist/filepond-plugin-fetch-svg-preview
 ```
 
 ## Demo
+Python 2.x
 ```
 python -m SimpleHTTPServer 8000
 ```
-localhost:8000
+Open localhost:8000 in your browser.

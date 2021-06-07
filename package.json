@@ -1,6 +1,6 @@
 {
     "name": "filepond-plugin-fetch-svg-preview",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "Fetch SVG preview plugin for FilePond",
     "license": "MIT",
     "author": {

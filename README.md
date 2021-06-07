@@ -1,6 +1,6 @@
 # SVG Preview plugin for FilePond
 
-This **Fetch SVG Preview** plugin will kick in automatically when the uploaded file has an SVG extension with incorrect Content-Type e.g. *application/octet-stream* which is common case in S3 bucket.
+This **Fetch SVG Preview** plugin will kick in automatically when the uploaded file has an SVG extension with incorrect Content-Type e.g. *application/octet-stream* which is common in S3 bucket.
 
 ## Quick Start
 
@@ -33,12 +33,12 @@ const pond = FilePond.create({
 // Add it to the DOM
 document.body.appendChild(pond.element);
 ```
- The preview will become active when uploading an SVG file.
+ The Fetch SVG preview will become active when loading an SVG file as describe above. It will remove all hyperlinks within the SVG documents itself for security reason.
 
 ## Filepond options
 | props name | description |
 | -------------------- | ----------- |
-| allowFetchSVGPreview | boolean |
+| allowFetchSVGPreview | true *boolean* |
 
 
 ## Default styles

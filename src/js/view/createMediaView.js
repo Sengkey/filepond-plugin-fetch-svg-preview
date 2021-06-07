@@ -1,5 +1,6 @@
 import { isPreviewableSVG } from './../utils/isPreviewableSVG';
-
+import { removeSVGLinks } from './../utils/removeSVGLinks';
+ 
 export const createMediaView = _ =>
     _.utils.createView({
         name: 'fetch-svg-preview',
@@ -36,9 +37,10 @@ export const createMediaView = _ =>
                     fetch(root.ref.media.src)
                         .then(response => response.text())
                         .then(svg => {
-                            root.ref.media.insertAdjacentHTML("afterbegin", svg);
+                            
+                            root.ref.media.insertAdjacentHTML("afterbegin", removeSVGLinks(svg));
 
-                            // Calculate Height
+                            // Calculate SVG new height
                             const viewBox = (/viewBox="([^"]+)"/.exec(svg) || '')[1];
                             const viewBoxArray = viewBox.split(" ");
                             const svgWidth = +viewBoxArray[2];

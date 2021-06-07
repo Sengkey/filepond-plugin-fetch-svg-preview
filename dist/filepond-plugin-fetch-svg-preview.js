@@ -1,5 +1,5 @@
 /*!
- * FilePondPluginFetchSVGPreview 1.0.5
+ * FilePondPluginFetchSVGPreview 1.0.7
  * Licensed under MIT, https://opensource.org/licenses/MIT/
  * Please visit undefined for details.
  */
@@ -19,6 +19,20 @@
 
   const isPreviewableSVG = (file) =>
     /^.+\.svg/.test(file.name) && !/^image/.test(file.type);
+
+  function removeSVGLinks(svg) {
+    var _svg = svg;
+    const reOpenATags = /<\s*a[^>]*>(.*?)/g;
+    const openATags = svg.match(reOpenATags);
+
+    if (openATags.length > 0) {
+      openATags.map((tag) => {
+        _svg = _svg.replace(tag, '').replace('</a>', '');
+      });
+    }
+
+    return _svg;
+  }
 
   const createMediaView = (_) =>
     _.utils.createView({
@@ -55,7 +69,10 @@
             fetch(root.ref.media.src)
               .then((response) => response.text())
               .then((svg) => {
-                root.ref.media.insertAdjacentHTML('afterbegin', svg); // Calculate Height
+                root.ref.media.insertAdjacentHTML(
+                  'afterbegin',
+                  removeSVGLinks(svg)
+                ); // Calculate SVG new height
 
                 const viewBox = (/viewBox="([^"]+)"/.exec(svg) || '')[1];
                 const viewBoxArray = viewBox.split(' ');

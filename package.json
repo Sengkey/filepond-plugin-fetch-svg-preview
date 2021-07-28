@@ -6,7 +6,6 @@
     "author": {
         "name": "Reg Sengkey"
     },
-    "repository": "https://github.com/Sengkey/filepond-plugin-fetch-svg-preview",
     "main": "dist/filepond-plugin-fetch-svg-preview.js",
     "browser": "dist/filepond-plugin-fetch-svg-preview.js",
     "module": "dist/filepond-plugin-fetch-svg-preview.esm.js",

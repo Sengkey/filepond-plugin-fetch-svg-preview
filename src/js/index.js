@@ -48,7 +48,7 @@ const plugin = fpAPI => {
                 const item = query('GET_ITEM', id);
 
                 // don't do anything while not an SVG octet-stream file or hidden
-                if ((!isPreviewableSVG(item.file)) || root.rect.element.hidden) return;
+                if (!item || !isPreviewableSVG(item.file) || root.rect.element.hidden) return;
             })
         );
     });

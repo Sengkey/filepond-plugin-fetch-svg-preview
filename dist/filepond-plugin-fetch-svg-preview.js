@@ -1,5 +1,5 @@
 /*!
- * FilePondPluginFetchSVGPreview 1.0.7
+ * FilePondPluginFetchSVGPreview 1.0.8
  * Licensed under MIT, https://opensource.org/licenses/MIT/
  * Please visit undefined for details.
  */
@@ -172,7 +172,11 @@
             const { id } = props;
             const item = query('GET_ITEM', id); // don't do anything while not an SVG octet-stream file or hidden
 
-            if (!isPreviewableSVG(item.file) || root.rect.element.hidden)
+            if (
+              !item ||
+              !isPreviewableSVG(item.file) ||
+              root.rect.element.hidden
+            )
               return;
           }
         )

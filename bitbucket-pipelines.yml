@@ -1,0 +1,14 @@
+image: node:10.14.0
+
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Publish to NPM
+          deployment: production
+          script:
+            - npm version minor -m "Upgrade to %s [skip ci]"
+            - git push && git push --tags
+            - pipe: atlassian/npm-publish:0.2.0
+              variables:
+                NPM_TOKEN: $NPM_TOKEN

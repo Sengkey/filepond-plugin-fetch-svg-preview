@@ -1,5 +1,5 @@
 /*!
- * FilePondPluginFetchSVGPreview 1.0.8
+ * FilePondPluginFetchSVGPreview 1.0.9
  * Licensed under MIT, https://opensource.org/licenses/MIT/
  * Please visit undefined for details.
  */
@@ -13,7 +13,7 @@ function removeSVGLinks(svg) {
   var _svg = svg;
   const reOpenATags = /<\s*a[^>]*>(.*?)/g;
   const openATags = svg.match(reOpenATags);
-  if (openATags.length > 0) {
+  if (openATags && openATags.length > 0) {
     openATags.map((tag) => {
       _svg = _svg.replace(tag, '').replace('</a>', '');
     });
